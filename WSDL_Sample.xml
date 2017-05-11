@@ -1,0 +1,29 @@
+<!-- ref: http://www.devmedia.com.br/introducao-as-tecnologias-web-services-soa-soap-wsdl-e-uddi-parte1/2873-->
+
+<definitions>
+    <interface name="Catalog">
+      <operation name="GetBook">
+        <input name="Msg1" message="BookInfo"/>
+      </operation>
+    </interface>
+	
+    <message name="BookInfo">
+      <part name="title" type="xs:string">
+        Field Guide
+      </part>
+      <part name="author" type="xs:string">
+        Mr. T
+      </part>
+    </message>
+    
+    <service name="Service1">
+      <endpoint name="EndPoint1" binding="Binding1">
+        ...concrete implementation details...
+      </endpoint>
+      <binding name="Binding1">
+        <operation>
+          <input name="Msg1" message="book"/>
+        </operation>
+      </binding>
+    </service>
+</definitions>
